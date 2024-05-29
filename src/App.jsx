@@ -1,16 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 import "./App.css";
+import { Outlet } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import FullScreenLoader from "./components/fullScreenLoader/FullScreenLoader";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <Toaster />
+      <FullScreenLoader />
+      <div className="App">
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   );
-}
+};
 
 export default App;
